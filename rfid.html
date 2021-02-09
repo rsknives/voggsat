@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+<head>
+	<title>James Configuracao - Wiegand</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body onload="getGrid('rfid')">
+	<div class="container">
+		<div class="titulo">
+			<h3>Wiegand</h3>
+		</div></br>
+		<form action="/setrfiddata">
+			<input type="hidden" id="version" name="version" value="1.0" />
+					<div class="row">
+						<label>Ativa RfId</label><br>
+					<label class="switch">
+						<input type="checkbox" name="rfIdIsActive" id="rfIdIsActive" #rfIdIsActive#>
+						<span class="slider round"></span>
+					</label>
+					<hr>
+				<div class="flex">					
+			     		<label>Porta 1 Offline</label><br>
+						<label class="switch">
+							<input type="checkbox" name="rfIdOffline1Active" id="rfIdOffline1Active"
+								onclick="checkSwitch('rfIdOffline1Active','rfIdOffline1Data')" #rfIdOffline1Active#>
+							<span class="slider round"></span>
+						</label>
+						<label>Offline remoto 1</label><br>
+						<label class="switch">
+							<input type="checkbox" name="rfIdOffline1Remote" id="rfIdOffline1Remote" #rfIdOffline1Remote#>
+							<span class="slider round"></span>
+						</label>
+						<label>Porta 2 Offline</label><br>
+						<label class="switch">
+							<input type="checkbox" name="rfIdOffline2Active" id="rfIdOffline2Active"
+								onclick="checkSwitch('rfIdOffline2Active','rfIdOffline2Data')" #rfIdOffline2Active# >
+							<span class="slider round"></span>
+						</label>
+						<label>Offline remoto 2</label><br>
+						<label class="switch">
+							<input type="checkbox" name="rfIdOffline2Remote" id="rfIdOffline2Remote" #rfIdOffline2Remote#>
+							<span class="slider round"></span>
+						</label>
+			</div>
+			</div>
+					<hr>
+			<div id="rfIdOffline1Data" style="display: none;">
+				<div class="row">
+					<div class="column">
+						<label>Porta L1</label>
+						<input type="text" maxlength="2" id="rfId1Port" name="rfId1Port"
+							placeholder="Porta associada leitor 1(Padrão 5)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId1Port#">
+					</div>
+					<div class="column">
+						<label>Tempo L1</label>
+						<input type="text" maxlength="4" id="rfId1Time" name="rfId1Time"
+							placeholder="tempo do pulso na porta(Padrão 1)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId1Time#">
+					</div>
+					<div class="column">
+						<label>Delay L1</label>
+						<input type="text" maxlength="4" id="rfId1Delay" name="rfId1Delay"
+							placeholder="Atraso no pulso(Padrão 0)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId1Delay#">
+					</div>
+					<div class="column"> 
+						<label>Tipo</label>
+						<select class="combo" name="portType1" placeholder="Selecione tipo" value="#portType1#">
+							<option value="rfidTagEvent">Cartão RFID</option>
+							<option value="biometriaEvent">Biometria</option>
+							<option value="facialEvent">Biometria Facial</option>
+							<option value="uhfTagEvent">Antena UHF</option>
+						</select>
+					</div>
+					<div class="column">
+						<label>Ip da placa 1</label>
+						<input type="text" maxlength="15" id="rfId1OfflineIp" name="rfId1OfflineIp"
+							placeholder="Ip da placa onde estão os relês"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId1OfflineIp#">
+					</div>
+				</div>
+			</div>
+			<div id="rfIdOffline2Data" style="display: none;">
+				<div class="row">
+					<div class="column">
+						<label>Porta L2</label>
+						<input type="text" maxlength="2" id="rfId2Port" name="rfId2Port"
+							placeholder="Porta associada leitor 2(Padrão 6)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId2Port#">
+					</div>
+					<div class="column">
+						<label>Tempo L2</label>
+						<input type="text" maxlength="4" id="rfId2Time" name="rfId2Time"
+							placeholder="tempo do pulso na porta(Padrão 1)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId2Time#">
+					</div>
+					<div class="column">
+						<label>Delay L2</label>
+						<input type="text" maxlength="4" id="rfId2Delay" name="rfId2Delay"
+							placeholder="Atraso no pulso(Padrão 0)"
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rfId2Delay#">
+					</div>
+					<div class="column">
+						<label>Tipo</label>
+						<select class="combo" name="portType2" placeholder="Selecione tipo" value="#portType2#">
+							<option value="rfidTagEvent">Cartão RFID</option>
+							<option value="biometriaEvent">Biometria</option>
+							<option value="facialEvent">Biometria Facial</option>
+							<option value="uhfTagEvent">Antena UHF</option>
+						</select>
+					</div>
+					<div class="column">
+						<label>Ip da placa 2</label>
+						<input type="text" maxlength="15" id="rfId2OfflineIp" name="rfId2OfflineIp"
+							placeholder="Ip da placa onde estão os relês"
+							onkeypress="return event.charCode >= 46 && event.charCode <= 57" value="#rfId2OfflineIp#">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div>
+					<input type="submit" value="Salvar">
+				</div>	
+		</form>
+				<div class="btn">					
+						<input  class="buttonlayer" type="button" value="Carregar" onclick="loadData('rfid')">
+						<input  class="buttonlayer" type="button" value="Anterior" onclick="priorPage('rfid')">
+						<input class="buttonlayer" type="button" value="Próximo" onclick="nextPage('rfid')">
+						</div>
+				<div>
+						<form method='POST' action='upload' enctype='multipart/form-data'>								
+									<input class="file1" type='file' name='update' placeholder="Arquivo Permissões">								
+									<input  type='submit' value='Upload'>														  
+						</form>
+				</div>
+	<table id="lines">
+	</table>
+	</div>
+</body>
+
+</html>

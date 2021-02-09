@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+<head>
+	<title>James Configuracao</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body onload="updateStatus()">
+	<div class="container"> 
+	    <div class="titulo"><h3>Status da placa</h3>
+      	</div>
+		 <table class="gatilho">
+			<tr>
+				<th>Placa:</th>
+				<td>JAMAINRXID</td>
+				<th>Serial</th>
+				<td>#serial#</td>
+			</tr>
+				<th>Expansão</th>
+				<td>#expansao#</td>
+				<th>Nome do Host</th>
+				<td>#hostname#</td>
+			</tr>
+			<tr>
+				<th>IP Interno</th>
+				<td>#sysIP#</td>
+				<th>Tensão da placa</th>
+				<td id="lbVoltage">#boardVolt#</td>
+			</tr>
+			<tr>
+				<th>Inicialização</th>
+				<td>#bootDT#</td>
+				<th>Tempo Ativo</th>
+				<td id="lbRunTime">#activeDT#</td>
+			</tr>
+			<tr>
+				<th>Versão do Software</th>
+				<td>#swVersion#</td>
+				<th>Data do Software</th>
+				<td>#swBuild#</td>
+			</tr>
+			<tr>
+				<th>Versão da Interface</th>
+				<td>#fsVersion#</td>
+				<th>Data da Interface</th>
+				<td>#fsBuild#</td>
+			</tr>
+			<tr>
+				<th>Mqtt conectado</th>
+				<td id="mqttIsOn">#mqtt#</td>
+				<th>Mqtt Subriscrição</th>
+				<td>#pathMqtt#</td>
+			</tr>
+			<tr>
+				<th>IP Externo</th>
+				<td>#extIP#</td>
+				<th>Wifi</th>
+				<td>#wifi#</td>
+			</tr>
+			<tr>
+				<th>IP Cliente</th>
+				<td>#clientIP#</td>
+				<th>Navegador</th>
+				<td>#userAgent#</td>
+			</tr>
+			<tr>
+				<th>Total Tag</th>
+				<td>#rfidLength#</td>
+				<th>Total Controle</th>
+				<td>#433Length#</td>
+			</tr>
+			<tr>
+				<th>Total Senhas</th>
+				<td>#passLength#</td>
+			</tr>
+		</table>
+	</br>
+		<div class="container2">
+			<h3>Status das portas</h3>
+		<div class="ep1" id="exp1">
+			<a onclick="ap(1)"><span id="dot1" class="dot">01</span> </a>
+			<a onclick="ap(2)"><span id="dot2" class="dot">02</span> </a>
+			<a onclick="ap(3)"><span id="dot3" class="dot">03</span> </a> 
+			<a onclick="ap(4)"><span id="dot4" class="dot">04</span> </a> 
+			<a onclick="ap(5)"><span id="dot5" class="dot">05</span> </a> 
+			<a onclick="ap(6)"><span id="dot6" class="dot">06</span> </a> 
+			<a onclick="ap(7)"><span id="dot7" class="dot">07</span> </a> 
+			<a onclick="ap(8)"><span id="dot8" class="dot">08</span> </a> 
+			<a onclick="ap(9)"><span  id="dot9"  class="dot">09</span> </a>
+			<a onclick="ap(10)"><span id="dot10" class="dot">10</span> </a>
+			<a onclick="ap(11)"><span id="dot11" class="dot">11</span> </a>
+			<a onclick="ap(12)"><span id="dot12" class="dot">12</span> </a>
+			<a onclick="ap(13)"><span id="dot13" class="dot">13</span> </a>
+			<a onclick="ap(14)"><span id="dot14" class="dot">14</span> </a>
+			<a onclick="ap(15)"><span id="dot15" class="dot">15</span> </a>
+			<a onclick="ap(16)"><span id="dot16" class="dot">16</span> </a>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

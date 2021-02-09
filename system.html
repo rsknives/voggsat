@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+
+<head>
+	<title>James Configuracao - Sistema</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="titulo">
+			<h3>Status da placa</h3>
+		</div>
+		<table class="gatilho">
+			<tr>
+				<th>Placa:</th>
+				<td>JAMAINRXID</td>
+				<th>Serial</th>
+				<td>#serial#</td>				
+			</tr>
+				<th>Expansão</th>
+				<td>#expansao#</td>
+				<th>Nome do Host</th>
+				<td>#hostname#</td>
+			</tr>
+			<tr>
+				<th>IP Interno</th>
+				<td>#sysIP#</td>
+				<th>Tensão da placa</th>
+				<td id="lbVoltage">#boardVolt#</td>
+			</tr>
+			<tr>
+				<th>Mqtt conectado</th>
+				<td id="mqttIsOn">#mqtt#</td>
+				<th>Mqtt Subriscrição</th>
+				<td>#pathMqtt#</td>
+			</tr>
+			<tr>
+				<th>IP Externo</th>
+				<td>#extIP#</td>
+				<th>Wifi</th>
+				<td>#wifi#</td>
+			</tr>
+			<tr>
+				<th>IP Cliente</th>
+				<td>#clientIP#</td>
+				<th>Navegador</th>
+				<td>#userAgent#</td>
+			</tr>
+		</table>
+		<div class="titulo">
+		</br>
+		<h3>Status da Atualização</h3>
+		</div>
+		<table id="t01">
+			<tr>
+				<th>Versão do Software Atual</th>
+				<td>#swVersion#</td>
+				<th>Build do Software</th>
+				<td>#swBuild#</td>
+			</tr>
+			<tr>
+				<th>Versão da Interface Atual</th>
+				<td>#fsVersion#</td>
+				<th>Build dos Interface</th>
+				<td>#fsBuild#</td>
+			</tr>
+			<tr>
+				<th>Nova Versão do Software</th>
+				<td>#swVersionNew#</td>
+				<th>Build do Software</th>
+				<td>#swBuildNew#</td>
+			</tr>
+			<tr>
+				<th>Nova Versão dos Interface</th>
+				<td>#fsVersionNew#</td>
+				<th>Build dos Interface</th>
+				<td>#fsBuildNew#</td>
+			</tr>
+			<tr>
+				<th>Situação</th>
+				<td>#status#</td>
+				<th>Atualização Manual</th>
+				<td>
+					<div>
+						<form method='POST' action='' enctype='multipart/form-data'>
+							<div class="row">
+								<div>
+									<input class="file" type='file' name='update'  placeholder="Arquivo">
+									<input type='submit' value='Update'>							    
+								</div>
+							</div>			  
+						</form>
+					</div>
+				</td>
+
+			</tr>
+		</table>
+	  <hr>
+		<div class="row">
+				<div class="btn">
+					<input  class="buttonlayer" type="button" value="Verificar" onclick="checkUpdate()">
+					<input  class="buttonlayer" type="button" value="Atualizar" onclick="doUpdate()">
+					<input class="buttonlayer" type="button" value="Reset" onclick="doReset()">
+				</div>	
+		</div>
+	</div>
+</body>
+</html>

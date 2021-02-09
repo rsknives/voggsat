@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+
+<head>
+	<title>James Configuracao - Servidor</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body>
+	<div class="container">
+	<div class="titulo">
+		<h3>Conexão com o Servidor</h3>
+	</div>
+			<form action="/setserverdata">
+			<input type="hidden" id="version" name="version" value="1.0" />
+			</br>
+			<label>Ativa Mqtt</label><br>
+			<label class="switch">
+				<input type="checkbox" name="mqttActive" id="mqttActive" onclick="checkSwitch('mqttActive','mqttData')" #mqttActive#>
+				<span class="slider round"></span>
+			</label><br>
+			<hr>
+			<div id="mqttData" style="display: none;">
+				<div class="row">
+					<div class="column">
+						<label>Servidor</label>
+						<input type="text" maxlength="40" id="srvMqtt" name="srvMqtt"
+							placeholder="Endereço do servidor mqtt.." value="#srvMqtt#">
+					</div>
+					<div class="column">
+						<label>Porta</label>
+						<input type="text" maxlength="5" id="mqttPort" name="mqttPort"
+							placeholder="Porta do servidor mqtt.."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#mqttPort#">
+					</div>
+					<div class="column">
+						<label>Tópico</label>
+						<input type="text" maxlength="30" id="mqttTopic" name="mqttTopic"
+							placeholder="Tópico do servidor Mqtt.." value="#mqttTopic#">
+					</div>
+				</div>
+				<div class="row">
+					<div class="column">
+						<label>Usuário</label>
+						<input type="text" maxlength="15" id="mqttUser" name="mqttUser"
+							placeholder="Usuário do servidor Mqtt.." value="#mqttUser#">
+					</div>
+					<div class="column">
+						<label>Senha</label>
+						<input type="password" maxlength="15" id="mqttPass" name="mqttPass"
+							placeholder="Senha do servidor Mqtt.." value="#mqttPass#">
+					</div>
+					<div class="column"></div>
+				</div>
+			</div>
+			<label>Ativa Cayenne</label><br>
+			<label class="switch">
+				<input type="checkbox" name="cayActive" id="cayActive" onclick="checkSwitch('cayActive','cayenneData')" #cayActive#>
+				<span class=" slider round"></span>
+			</label><br>
+			<hr>
+			<div id="cayenneData" style="display: none;">
+				<div class="row">
+					<div class="column">
+						<label>Usuário</label>
+						<input type="text" maxlength="100" id="cayUser" name="cayUser" placeholder="Usuário do Caynne.." value="#cayUser#">
+					</div>
+					<div class="column">
+						<label>Senha</label>
+						<input type="password" maxlength="100" id="cayPass" name="cayPass"
+							placeholder="Senha do Caynne.." value="#cayPass#">
+					</div>
+					<div class="column">
+						<label>Cliente ID</label>
+						<input type="text" maxlength="100" id="cayClient" name="cayClient"
+							placeholder="Cliente ID do Caynne.." value="#cayClient#">
+					</div>
+				</div>
+			</div>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+</body>
+
+</html>

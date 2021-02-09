@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+
+<head>
+	<title>James Configuracao - Rádio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body onload="getGrid('433')">
+	<div class="container">
+		<div class="titulo">
+			<h3>Conexão Rádio</h3>
+		</div>
+		<form action="/set433data">
+			<input type="hidden" id="version" name="version" value="1.0" />
+			<div class="row">			
+					<div class="btn">
+					  <label>Ativa Rádio</label>
+					   <label class="switch">
+						<input type="checkbox" name="rxIsActive" id="rxIsActive" #rxIsActive#>
+						<span class="slider round"></span>
+					   </label>
+					  <label>Ativa Offline</label>
+					     <label class="switch">
+						<input type="checkbox" name="rxOfflineActive" id="rxOfflineActive"
+							onclick="checkSwitch('rxOfflineActive','rxData')" #rxOfflineActive#>
+						<span class="slider round"></span>
+					  </label>
+					</div>
+			</div>
+			<hr>
+			<div id="rxData" style="display: none;">
+				<div class="row">
+					<div class="column">
+						<label>Porta</label>
+						<input type="text" maxlength="2" id="rxPort" name="rxPort"
+							placeholder="Porta associada rádio(Padrão 7).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxPort#">
+					</div>
+					<div class="column">
+						<label>Tempo</label>
+						<input type="text" maxlength="4" id="rxTime" name="rxTime"
+							placeholder="tempo do pulso na porta(Padrão 1).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxTime#">
+					</div>
+					<div class="column">
+						<label>Delay</label>
+						<input type="text" maxlength="4" id="rxDelay" name="rxDelay"
+							placeholder="Atraso no pulso(Padrão 0).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxDelay#">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="">
+					<input type="submit" value="Salvar">
+				</div>	
+	</form>
+				<div class="column1">
+						<input  class="buttonlayer" type="button" value="Carregar" onclick="loadData('433')">
+						<input  class="buttonlayer" type="button" value="Anterior" onclick="priorPage('433')">
+						<input class="buttonlayer" type="button" value="Próximo" onclick="nextPage('433')">
+				</div>
+				<div >
+						<form method='POST' action='upload' enctype='multipart/form-data'>
+								<div>							
+									<input class="file1" type='file' name='update' placeholder="Arquivo Permissões">
+									<input  type='submit' value='Upload'>
+								</div>
+							</div>			  
+						</form>
+	   <table id="lines">
+	   </table>
+   </div>
+</body>
+
+</html>

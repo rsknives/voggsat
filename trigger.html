@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- 
+  // port_trigger,port_target,type,command,portStatus,value,name;
+  // 1,5,1,1,0,0,teste de porta 1;
+
+https://htmlcompressor.com/compressor/lm8524lm
+-->
+
+<head>
+	<title>James Configuracao - Gatilho</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body onload="loadtrigger()">
+	    <div class="container">
+		<div class="titulo">
+			<h3>Descrição do gatilho</h3>
+		</div>
+		<form action="/addTrigger">
+			<div class="row">
+					<input type="text" maxlength="30" id="description" name="description"
+						placeholder="Descrição do gatilho">
+			</div>
+			<hr>
+			<div class="row">
+				<div class="column">
+					<label>Porta Gatilho</label>
+					<select class="combo" id="portTrigger" name="portTrigger" placeholder="Selecione a porta do gatilho.">
+					</select>
+				</div>
+				<div class="column">
+					<label>Porta Destino</label>
+					<select class="combo" id="portTarget" name="portTarget" placeholder="Selecione a porta destino.">
+					</select>
+				</div>
+				<div class="column">
+					<label>Tipo de Gatilho</label>
+					<select class="combo" id="type" name="type" placeholder="Selecione o tipo do gatilho." >
+						<option value="1">PORTA ASSOCIADA</option>
+						<option value="2">PORTA DEPENDENTE (FUTURO)</option>
+						<option value="3">PORTA VALOR IGUAL</option>
+						<option value="4">PORTA VALOR MAIOR</option>
+						<option value="5">PORTA MENOR</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					<label>Comando</label>
+					<select class="combo" id="command" name="command" placeholder="Selecione a porta do gatilho.">
+						<option value="1">Troca de Status</option>
+						<option value="2">Pulso</option>
+						<option value="3">Define Status</option>
+					</select>
+				</div>
+				<div class="column">
+					<label>Status da Porta do Gatilho</label>
+					<input type="text" maxlength="5" id="portStatus" name="portStatus"
+						placeholder="Status da porta Ex: 0(ON) ou 1(OFF)"
+						onkeypress="return event.charCode >= 46 && event.charCode <= 57">
+				</div>
+				<div class="column">
+					<label>Valor da porta</label>
+					<input type="text" maxlength="5" id="portValue" name="portValue"
+						placeholder="Valor da porta Ex: 0(ON) ou 1(OFF)"
+						onkeypress="return event.charCode >= 46 && event.charCode <= 57">
+				</div>
+			</div>		
+			<div class="row">
+                    <div class="btn">
+					    <input class="buttonlayer" type="submit" value="Salvar">
+						<input  class="buttonlayer" type="button" value="Limpar" onclick="clearTrigger()">
+					</div>	
+						<form method='POST' action='upload' enctype='multipart/form-data'>
+							<div class="row">							
+									<input class="file1" type='file' name='update' placeholder="Arquivo Permissões">						
+									<input type='submit' value='Upload'>								
+							</div>			  
+						</form>
+			</div>
+					
+         <table id="lines">
+		 </table>
+    </div>
+</body>
+
+</html>

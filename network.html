@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>James Configuracao - Wifi</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./james.css" media="screen" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="./james.js"></script>
+</head>
+
+<body>
+	    <div class="container">
+		<div class="titulo">
+		   <h3>Conexão Wireless</h3>
+		</div>
+			<input type="hidden" id="version" name="version" value="1.0" />
+		
+		     <form action="/setnetworkdata">			
+         	  <div class="row">
+				<div class="column">
+					<label>SSID da rede</label>
+					<select class="combo" id="wifiName" name="wifiName" placeholder="Selecione a sua rede wifi." value="#wifiName#">
+						#wifilist#		
+					</select>
+				</div>
+				<div class="column">
+					<label>Senha</label>
+					<input type="password" maxlength="15" id="wifiPassword" name="wifiPassword"
+						placeholder="Senha do wifi." value="#wifiPassword#">
+				</div>
+			</div>
+		<div class="btn">
+			<label>IP Estádico</label><br>
+			<label class="switch">
+				<input type="checkbox"  name="isFixedIp" id="isFixedIp"
+					onclick="checkSwitch('isFixedIp','networkData')" #isFixedIp#>
+				<span class="slider round"></span>
+			</label><br>			
+		</div>
+			<hr>
+			<div id="networkData" style="display: none">
+				<div class="row">
+					<div class="column">
+						<label>Endereço</label>
+						<input type="text" maxlength="15" id="ipAddress" name="ipAddress"
+							placeholder="Endereço IP desejado (192.168.0.20)"
+							onkeypress="return event.charCode >= 46 && event.charCode <= 57" value="#ipAddress#">
+					</div>
+					<div class="column">
+						<label>Mascara de rede</label>
+						<input type="text" maxlength="15" id="mask" name="mask"
+							placeholder="Mascara de rede(255.255.255.0)."
+							onkeypress="return event.charCode >= 46 && event.charCode <= 57" value="#mask#">
+					</div>
+					<div class="column">
+						<label>Gateway</label>
+						<input type="text" maxlength="15" id="gateway" name="gateway"
+							placeholder="Getay padrão da rede(192.168.0.1)."
+							onkeypress="return event.charCode >= 46 && event.charCode <= 57" value="#gateway#">
+					</div>
+				</div>
+				<div class="row">
+					<div class="column">
+						<label>DNS Primário</label>
+						<input type="text" maxlength="30" id="dns1" name="dns1" placeholder="DNS desejado (8.8.8.8)" value="#dns1#">
+					</div>
+					<div class="column">
+						<label>DNS Secundário</label>
+						<input type="text" maxlength="30" id="dns2" name="dns2" placeholder="DNS desejado (4.4.4.4)." value="#dns2#">
+					</div>
+					<div class="column"></div>
+				</div>
+			</div>
+			<input type="submit" value="Salvar Rede">
+		  </form>
+
+	 </br>
+	  <div class="container">
+		<form action="/setuserdata">
+			<div class="row">
+				<div class="column">
+					<label>Usuário web</label>
+					<input type="text" maxlength="10" id="webUser" name="webUser" placeholder="Usuário para acesso web" value="#webUser#">
+				</div>
+				<div class="column">
+					<label>Senha Web</label>
+					<input type="text" maxlength="10" id="webPass" name="webPass" placeholder="Senha para acesso web" value="#webPass#">
+				</div>
+				<div class="column"></div>
+				</div>
+		
+			<input type="submit" value="Salvar senha">
+			</div>
+		</form>
+    </div>
+</body>
+
+</html>
