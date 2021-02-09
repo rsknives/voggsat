@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- https://htmlcompressor.com/compressor/  lm8524lm-->
+
+<head>
+	<title>James Configuracao - Rádio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		* {
+			box-sizing: border-box
+		}
+
+		/* Set height of body and the document to 100% */
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			font-family: Arial;
+		}
+
+		/* The switch - the box around the slider */
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 60px;
+			height: 34px;
+		}
+
+		/* Hide default HTML checkbox */
+		.switch input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+		/* The slider */
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 26px;
+			width: 26px;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+
+		input:checked+.slider {
+			background-color: #2196F3;
+		}
+
+		input:focus+.slider {
+			box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked+.slider:before {
+			-webkit-transform: translateX(26px);
+			-ms-transform: translateX(26px);
+			transform: translateX(26px);
+		}
+
+		select:checked+.slider:before {
+			-webkit-transform: translateX(26px);
+			-ms-transform: translateX(26px);
+			transform: translateX(26px);
+		}
+
+		/* Rounded sliders */
+		.slider.round {
+			border-radius: 34px;
+		}
+
+		.slider.round:before {
+			border-radius: 50%;
+		}
+
+		input[type=text],
+		input[type=password],
+		select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		h1,
+		h2,
+		h3 {
+			color: black;
+		}
+
+		label {
+			color: black;
+			margin: 5px 10px 5px 0;
+		}
+
+		input[type=submit] {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+
+		input[type=button] {
+			width: 90px;
+			background-color: #4CAF50;
+			color: white;
+			padding: 4px 15px;
+			margin: 1px 0;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+
+		input[type=button]:hover {
+			background-color: #45a049;
+		}
+
+		div.container {
+			border-radius: 15px;
+			background-color: #f2f2f2;
+			padding: 15px;
+		}
+		input.buttonlayer{
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100%;
+			border: 1px solid #ddd;
+			border-radius: 2px;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2
+		}
+
+		/* Create two equal columns that floats next to each other */
+		.column {
+			float: left;
+			width: 33.33%;
+			padding: 10px;
+			height: 100px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		a:link,
+		a:visited {
+			background-color: green;
+			color: white;
+			padding: 10px 50px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		a:hover,
+		a:active {
+			background-color: red;
+		}
+	</style>
+	<script language="JavaScript">
+		var page = 0;
+		function checkSwitch(chk, componet) {
+			var checkBox = document.getElementById(chk);
+			var text = document.getElementById(componet);
+			if (checkBox.checked) {
+				text.style.display = "block";
+			} else {
+				text.style.display = "none";
+			}
+		}
+		function priorPage(){
+			if (page > 0) { page--; }
+			getGrid();
+		}
+		function nextPage(){
+			if (page > 50) { return; }
+			page++;
+			getGrid();
+		}
+		function loadData(){
+			var xhr = new XMLHttpRequest();
+			xhr.addEventListener("readystatechange", function () {
+				if (this.readyState === 4) {
+					console.log(this.responseText);
+					alert("Atualização realizado com sucesso.");
+					page = 0;
+					getGrid();
+				}
+			});
+			console.log(page);
+			xhr.open("GET", "/updatedataaccess", true);
+			xhr.withCredentials = true;
+			xhr.send(null);
+		}
+		function getGrid() {
+			var xhr = new XMLHttpRequest();
+			xhr.addEventListener("readystatechange", function () {
+				if (this.readyState === 4) {
+					console.log(page);
+					console.log(this.responseText);
+					var collum = "<tr><th>Dispositivo</th><th>Porta</th><th>Inicio</th>	<th>Fim</th></tr>"
+					document.getElementById("lines").innerHTML = collum+this.responseText;
+				}
+			});
+			xhr.open("GET", "/get433list?page="+page, true);
+			xhr.withCredentials = true;
+			xhr.send(null);
+		}
+	</script>
+</head>
+
+<body onload="getGrid()">
+	<a href="/">Status</a>
+	<a href="network">Wifi</a>
+	<a href="server">Servidor</a>
+	<a  style="background-color: red" href="433">Rádio</a>
+	<a href="rfid">Wiegand</a>
+	<a href="update">Update</a>
+	<a href="reset" onclick="return confirm('Deseja reiniciar a placa?')">Reset</a>
+	<div class="container">
+		<form action="/set433data">
+			<input type="hidden" id="version" name="version" value="1.0" />
+			<div class="row">
+				<div class="column">
+					<label>Ativa Rádio</label><br>
+					<label class="switch">
+						<input type="checkbox" name="rxIsActive" id="rxIsActive" #rxIsActive#>
+						<span class="slider round"></span>
+					</label><br>
+				</div>
+				<div class="column">
+					<label>Ativa Offline</label><br>
+					<label class="switch">
+						<input type="checkbox" name="rxOfflineActive" id="rxOfflineActive"
+							onclick="checkSwitch('rxOfflineActive','rxData')" #rxOfflineActive#>
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<div class="column"></div>
+			</div>
+			<div id="rxData">
+				<div class="row">
+					<div class="column">
+						<label>Porta</label><br>
+						<input type="text" maxlength="2" id="rxPort" name="rxPort"
+							placeholder="Porta associada rádio(Padrão 7).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxPort#">
+					</div>
+					<div class="column">
+						<label>Tempo</label>
+						<input type="text" maxlength="4" id="rxTime" name="rxTime"
+							placeholder="tempo do pulso na porta(Padrão 1).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxTime#">
+					</div>
+					<div class="column">
+						<label>Delay</label>
+						<input type="text" maxlength="4" id="rxDelay" name="rxDelay"
+							placeholder="Atraso no pulso(Padrão 0).."
+							onkeypress="return event.charCode >= 48 && event.charCode <= 57" value="#rxDelay#">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					<input type="submit" value="Salvar">
+				</div>	
+				<div class="column">
+					<div class="column">
+						<input  class="buttonlayer" type="button" value="Carregar" onclick="loadData()">
+					</div>	
+					<div class="column">
+						<input  class="buttonlayer" type="button" value="Anterior" onclick="priorPage()">
+					</div>	
+					<div class="column">
+						<input class="buttonlayer" type="button" value="Próximo" onclick="nextPage()">
+					</div>	
+					
+				</div>
+			</div>
+	</form>
+	</div>
+	<br>
+	<table id="lines"> 
+	</table>
+</body>
+
+</html>
